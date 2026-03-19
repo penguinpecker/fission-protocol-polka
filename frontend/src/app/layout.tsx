@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Providers } from "./providers";
-import { Navbar } from "@/components/Navbar";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
@@ -13,11 +12,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body>
         <Providers>
-          <div className="mesh-gradient" />
-          <Navbar />
-          <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
-            {children}
-          </main>
+          {/* Ambient Glows */}
+          <div className="fixed bottom-0 right-0 w-[600px] h-[600px] bg-fission-green/5 rounded-full blur-[120px] -z-10 translate-x-1/2 translate-y-1/2" />
+          <div className="fixed top-1/4 left-0 w-[400px] h-[400px] bg-fission-orange/5 rounded-full blur-[100px] -z-10 -translate-x-1/2" />
+          <div className="fixed top-3/4 right-1/4 w-[300px] h-[300px] bg-fission-purple/5 rounded-full blur-[100px] -z-10" />
+          {children}
         </Providers>
       </body>
     </html>
