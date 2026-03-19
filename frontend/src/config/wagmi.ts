@@ -1,9 +1,12 @@
-import { getDefaultConfig } from "@rainbow-me/rainbowkit";
-import { polkadotHub, polkadotHubTestnet } from "./contracts";
+import { http, createConfig } from "wagmi";
+import { injected } from "wagmi/connectors";
+import { polkadotHub } from "./contracts";
 
-export const wagmiConfig = getDefaultConfig({
-  appName: "Fission Protocol",
-  projectId: process.env.NEXT_PUBLIC_WC_PROJECT_ID || "YOUR_WALLETCONNECT_PROJECT_ID",
-  chains: [polkadotHub, polkadotHubTestnet],
+export const wagmiConfig = createConfig({
+  chains: [polkadotHub],
+  connectors: [injected()],
+  transports: {
+    [polkadotHub.id]: http("https://eth-rpc.polkadot.io/"),
+  },
   ssr: true,
 });

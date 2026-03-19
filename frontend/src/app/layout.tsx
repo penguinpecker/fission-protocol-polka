@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Providers } from "./providers";
 import "@/styles/globals.css";
-
 export const metadata: Metadata = {
   title: "Fission Protocol — Yield Tokenization for Polkadot Hub",
   description: "Split yield-bearing assets into Principal Tokens + Yield Tokens on Polkadot Hub.",
